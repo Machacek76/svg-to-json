@@ -1,0 +1,8 @@
+.vscode
+node_modules
+
+.ds_store
+.DS_Store
+._*
+
+icons
