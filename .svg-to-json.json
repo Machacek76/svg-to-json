@@ -1,0 +1,10 @@
+
+{
+    "props": {
+        "inputDir": "icons",
+        "outputDir": "icons",
+        "defaultFill": "currentColor",
+        "outputFile": "./dist/iconsPath.ts",
+        "removeFill": true
+    }
+}
