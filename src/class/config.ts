@@ -2,29 +2,24 @@
 type TConfig = {
     inputDir: string,
     outputDir: string,
-    outputFile: string,
+    fileName: string,
     defaultFill: string,
-    removeFill: boolean,
+    outputType: ['ts' | 'js' | 'json']
 }
 
 export class Config {
 
     private static _instance: Config;
     private _inputDir: string;
-    private _outputFile: string;
+    private _fileName: string;
     private _outputDir: string;
-    private _defaultFill: string;
-    private _removeFill: boolean;
-
-    private _config: any;
+    private _outputType: ['ts' | 'js' | 'json' ];
 
     constructor(props: TConfig) {
-        this._inputDir = props.inputDir ?? '';
-        this._outputFile = props.outputFile ?? '';
+        this._inputDir = props.inputDir ?? './';
+        this._fileName = props.fileName ?? '--svg-to-json--';
         this._outputDir =  props.outputDir ?? '';
-        this._defaultFill = props.defaultFill ?? '';
-        this._removeFill = props.removeFill ?? false;
-
+        this._outputType = props.outputType ?? ['ts'];
     }
 
     public static iniConfig (props: TConfig) {
@@ -40,43 +35,39 @@ export class Config {
         return this._instance;
     }
 
+    // input folder
     get inputDir (): string {
         return this._inputDir;
-    }
-
-    get outputFile (): string {
-        return this._outputFile;
-    }
-
-    get outputDir (): string {
-        return this._outputDir;
-    }
-
-    get defaultFill (): string {
-        return this._defaultFill;
-    }
-
-    get removeFill (): boolean {
-        return this._removeFill;
     }
 
     set inputDir (inputDir: string) {
         this._inputDir = inputDir;
     }
 
+    // output file name
+    get outputFile (): string {
+        return this._fileName;
+    }
+
     set outputFile (outputFile: string) {
-        this._outputFile = outputFile;
+        this._fileName = outputFile;
+    }
+
+    // output folder
+    get outputDir (): string {
+        return this._outputDir;
     }
 
     set outputDir (outputDir: string) {
         this._outputDir = outputDir;
     }
 
-    set defaultFill (defaultFill: string) {
-        this._defaultFill = defaultFill;
+    // output file type
+    get outputType (): ['ts' | 'js' | 'json'] {
+        return this._outputType;
     }
 
-    set removeFill (removeFill: boolean) {
-        this._removeFill = removeFill;
+    set outputType (outputTypes: ['ts' | 'js' | 'json']) {
+        this._outputType = outputTypes;
     }
 }

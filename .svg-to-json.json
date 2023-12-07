@@ -2,9 +2,12 @@
 {
     "props": {
         "inputDir": "icons",
-        "outputDir": "icons",
-        "defaultFill": "currentColor",
-        "outputFile": "./dist/iconsPath.ts",
-        "removeFill": true
+        "outputDir": "output-dir",
+        "fileName": "iconsPath",
+        "outputType": [
+            "json",
+            "ts",
+            "js"
+        ]
     }
 }

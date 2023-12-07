@@ -10,6 +10,7 @@ export type TFile = {
 };
 
 type TResult = {
+    name: string,
     viewBox: string,
     fill: string | undefined | number,
     paths: [],
@@ -25,13 +26,10 @@ class Parser {
     private _notUsed: TLog[];
     private _parsed: TLog[];
     private _svgFileName: string | undefined;
-    private defaultFill: string | undefined;
 
-    constructor(defaultFill: string | undefined = undefined) {
+    constructor() {
         this._notUsed = [];
         this._parsed = [];
-
-        this.defaultFill = defaultFill;
     }
 
     public parse ({path, file}: TFile): TResult | null {
@@ -47,6 +45,7 @@ class Parser {
 
         const camelize = Strings.camelize(this.svgFileName);
         const result: TResult = {
+            name: camelize,
             viewBox: '',
             fill: '',
             paths: [],

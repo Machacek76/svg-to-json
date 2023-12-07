@@ -3,3 +3,4 @@ export {Strings} from './strings';
 export type {TFile} from './dirs';
 export {Parser} from './parser';
 export {Config} from './config';
+export {Templates} from './templates';

@@ -6,10 +6,9 @@ const svgo_1 = require("svgo");
 const dirs_1 = require("./dirs");
 const strings_1 = require("./strings");
 class Parser {
-    constructor(defaultFill = undefined) {
+    constructor() {
         this._notUsed = [];
         this._parsed = [];
-        this.defaultFill = defaultFill;
     }
     parse({ path, file }) {
         // We have to set svgName before we call getSvg
@@ -21,6 +20,7 @@ class Parser {
         }
         const camelize = strings_1.Strings.camelize(this.svgFileName);
         const result = {
+            name: camelize,
             viewBox: '',
             fill: '',
             paths: [],
