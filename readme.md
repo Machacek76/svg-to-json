@@ -24,6 +24,10 @@ In the root folder of your project
 }
 ```
 
+### run 
+
+`svgToJson`
+
 ### example use in React
 
 ```

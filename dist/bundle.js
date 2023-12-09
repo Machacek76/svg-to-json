@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const class_1 = require("./class");
 const fs = require('fs');
 let settings = fs.readdirSync(process.cwd()).find((file) => file === '.svg-to-json.json');
+console.log('>>>', process.cwd());
 if (!settings) {
     console.error('No settings file found');
     process.exit(1);

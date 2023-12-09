@@ -5,7 +5,7 @@
     "typescript": "^5.3.2"
   },
   "name": "svg-to-json",
-  "version": "0.9.5",
+  "version": "0.9.7",
   "description": "Convert svg paths in folder into json, typescript or javascript file",
   "main": "dist/bundle.js",
   "author": "Milan Macháček",

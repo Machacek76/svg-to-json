@@ -1,7 +1,8 @@
 import {Dirs, Parser, Config, Templates} from './class';
 const fs = require('fs');
 
-let settings = fs.readdirSync(process.cwd()).find((file: string) => file === '.svg-to-json.json');
+const root = process.cwd();
+let settings = fs.readdirSync(root).find((file: string) => file === '.svg-to-json.json');
 
 if(!settings) {
     console.error('No settings file found');
@@ -10,6 +11,9 @@ if(!settings) {
 
 settings = Dirs.getFileContent(settings);
 settings = JSON.parse(settings);
+
+settings.props.inputDir = `${root}/${settings.props.inputDir}`;
+settings.props.outputDir = `${root}/${settings.props.outputDir}`;
 
 const [, , ...args] = process.argv;
 const verbose = !!args.find((arg) => arg === '-v' || arg === '--verbose');
